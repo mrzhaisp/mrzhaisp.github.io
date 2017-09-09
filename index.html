@@ -553,7 +553,7 @@ return item
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/09/Scrapy初学/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/09/Nginx初学/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MR_zhai">
@@ -572,7 +572,7 @@ return item
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/09/Scrapy初学/" itemprop="url">Scrapy初学</a></h1>
+                <a class="post-title-link" href="/2017/09/09/Nginx初学/" itemprop="url">Nginx初学</a></h1>
         
 
         <div class="post-meta">
@@ -584,8 +584,144 @@ return item
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-09T11:40:13+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-09T11:34:33+08:00">
                 2017-09-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Nginx</p>
+<p>使用nginx的作用主要包括负载均衡、反向代理<br>点击查看官方网站<br>下载nginx后放到桌面上，解压缩<br>tar zxvf nginx-1.6.3.tar.gz<br>进入nginx-1.6.3目录，依次执行以下命令进行安装<br>./configure<br>make<br>sudo make install<br>默认安装到/usr/local/nginx/目录，进入此目录<br>cd /usr/local/nginx/<br>启动<br>sudo sbin/nginx<br>查看进程<br>ps ajx|grep nginx<br>nginx</p>
+<p>停止<br>sudo sbin/nginx -s stop<br>打开浏览器，输入如下网址<br><a href="http://127.0.0.1/" target="_blank" rel="external">http://127.0.0.1/</a><br>浏览效果如下图<br>nginx</p>
+<p>指向uwsgi项目</p>
+<p>打开conf/nginx.conf文件<br>sudo gedit conf/nginx.conf<br>在server节点下添加新的location项，指向uwsgi的ip与端口<br>        location / {</p>
+<pre><code>    #将所有的参数转到uwsgi下
+    include uwsgi_params;
+    #uwsgi的ip与端口
+    uwsgi_pass 127.0.0.1:8080;
+}
+</code></pre><p>代码效果如下图<br>nginx</p>
+<p>关闭nginx后再开启<br>打开浏览器，刷新后如下图<br>nginx</p>
+<p>静态文件</p>
+<p>所有的静态文件都会由nginx处理，不会将请求转到uwsgi<br>打开conf/nginx.conf文件<br>sudo gedit conf/nginx.conf<br>在server节点下添加新的location项，用于处理静态文件<br>    location /static {<br>        alias /var/www/test6/static/;<br>    }<br>在服务器上创建如下目录<br>sudo mkdir -vp /var/www/test6/static/<br>修改目录权限<br>sudo chmod 777 /var/www/test6/static/<br>最终目录结构如下图：<br>nginx</p>
+<p>修改test6/settings.py文件<br>STATIC_ROOT=’/var/www/test6/static/‘<br>STATIC_URL=’/static/‘<br>收集所有静态文件到static_root指定目录<br>python manage.py collectstatic<br>按提示输入yes，收集文件<br>nginx</p>
+<p>停止后再启动nginx服务<br>在浏览器中刷新，浏览效果如下图<br>nginx</p>
+<p>布署完成</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/08/Scrapy初学/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MR_zhai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/ha.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="翟小德的blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/08/Scrapy初学/" itemprop="url">Scrapy初学</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-08T11:40:13+08:00">
+                2017-09-08
               </time>
             
 
@@ -773,142 +909,6 @@ for each in response.xpath(&quot;//div[@class=&apos;li_txt&apos;]&quot;):
 # 返回数据，不经过pipeline
 #return items
 </code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/09/Nginx初学/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MR_zhai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/ha.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="翟小德的blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/09/Nginx初学/" itemprop="url">Nginx初学</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-09T11:34:33+08:00">
-                2017-09-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Nginx</p>
-<p>使用nginx的作用主要包括负载均衡、反向代理<br>点击查看官方网站<br>下载nginx后放到桌面上，解压缩<br>tar zxvf nginx-1.6.3.tar.gz<br>进入nginx-1.6.3目录，依次执行以下命令进行安装<br>./configure<br>make<br>sudo make install<br>默认安装到/usr/local/nginx/目录，进入此目录<br>cd /usr/local/nginx/<br>启动<br>sudo sbin/nginx<br>查看进程<br>ps ajx|grep nginx<br>nginx</p>
-<p>停止<br>sudo sbin/nginx -s stop<br>打开浏览器，输入如下网址<br><a href="http://127.0.0.1/" target="_blank" rel="external">http://127.0.0.1/</a><br>浏览效果如下图<br>nginx</p>
-<p>指向uwsgi项目</p>
-<p>打开conf/nginx.conf文件<br>sudo gedit conf/nginx.conf<br>在server节点下添加新的location项，指向uwsgi的ip与端口<br>        location / {</p>
-<pre><code>    #将所有的参数转到uwsgi下
-    include uwsgi_params;
-    #uwsgi的ip与端口
-    uwsgi_pass 127.0.0.1:8080;
-}
-</code></pre><p>代码效果如下图<br>nginx</p>
-<p>关闭nginx后再开启<br>打开浏览器，刷新后如下图<br>nginx</p>
-<p>静态文件</p>
-<p>所有的静态文件都会由nginx处理，不会将请求转到uwsgi<br>打开conf/nginx.conf文件<br>sudo gedit conf/nginx.conf<br>在server节点下添加新的location项，用于处理静态文件<br>    location /static {<br>        alias /var/www/test6/static/;<br>    }<br>在服务器上创建如下目录<br>sudo mkdir -vp /var/www/test6/static/<br>修改目录权限<br>sudo chmod 777 /var/www/test6/static/<br>最终目录结构如下图：<br>nginx</p>
-<p>修改test6/settings.py文件<br>STATIC_ROOT=’/var/www/test6/static/‘<br>STATIC_URL=’/static/‘<br>收集所有静态文件到static_root指定目录<br>python manage.py collectstatic<br>按提示输入yes，收集文件<br>nginx</p>
-<p>停止后再启动nginx服务<br>在浏览器中刷新，浏览效果如下图<br>nginx</p>
-<p>布署完成</p>
-
           
         
       
