@@ -215,7 +215,9 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/ /" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
@@ -223,7 +225,9 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -231,7 +235,9 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -239,7 +245,9 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -247,7 +255,9 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -255,7 +265,9 @@
       
         
         <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
+          <a href="/404.html/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
             
             寻找丢失的孩子们
           </a>
@@ -280,6 +292,171 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/19/D-jango初学/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MR_zhai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/ha.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="翟小德的blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/19/D-jango初学/" itemprop="url">Django一</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-19T22:24:23+08:00">
+                2017-09-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>虚拟环境</p>
+<pre><code>在开发过程中，当需要使用python的包时可以联网安装
+</code></pre><p>sudo pip install 包名称</p>
+<pre><code>使用如上命令，会将包安装到/usr/bin/local/python2.7/disk-package下
+接下来问题就出来了，如果在一台机器上，想开发多个不同的项目，需要用到同一个包的不同版本，如果还使用上面的命令，在同一个目录下安装或者更新，其它的项目必须就无法运行了，怎么办呢？
+解决方案：虚拟环境
+虚拟环境可以搭建独立的python运行环境，使得单个项目的运行环境与其它项目互不影响
+所有的虚拟环境，都位于/home/下的隐藏目录.virtualenvs下
+</code></pre><p>创建</p>
+<pre><code>安装虚拟环境的命令如下
+</code></pre><p>sudo pip install virtualenv<br>sudo pip install virtualenvwrapper</p>
+<pre><code>创建虚拟环境的命令如下：
+</code></pre><p>mkvirtualenv 虚拟环境名称<br>例：<br>mkvirtualenv py_django</p>
+<p>创建虚拟环境</p>
+<pre><code>创建成功后，会自动工作在这个虚拟环境上
+提示1：创建虚拟环境需要联网
+提示2：工作在虚拟环境上，提示符最前面会出现“(虚拟环境名称)”
+</code></pre><p>退出</p>
+<pre><code>退出虚拟环境的命令如下：
+</code></pre><p>deactivate</p>
+<p>退出虚拟环境<br>查看与使用</p>
+<pre><code>查看所有虚拟环境的命令如下：
+提示：workon后面有个空格，再按两次tab键
+</code></pre><p>workon 两次tab键</p>
+<p>查看虚拟环境</p>
+<pre><code>使用虚拟环境的命令如下：
+写出名称的前部分后，可以使用tab键补齐
+</code></pre><p>workon 虚拟环境名称<br>例：<br>workon py_django</p>
+<p>使用虚拟环境</p>
+<pre><code>提示：注意提示符的变化
+</code></pre><p>删除</p>
+<pre><code>删除虚拟环境的命令如下：
+</code></pre><p>rmvirtualenv 虚拟环境名称<br>例：<br>先退出：deactivate<br>再删除：rmvirtualenv py_django</p>
+<p>删除虚拟环境<br>包操作</p>
+<pre><code>在虚拟环境中可以使用pip命令操作python包
+安装命令如下：
+</code></pre><p>pip install 包名称</p>
+<pre><code>查看命令如下：
+</code></pre><p>pip freeze</p>
+<p>安装django包</p>
+<pre><code>后面要学习使用django，以1.8.2版本为例，这是一个稳定性高、使用广、文档多的版本
+如果前面删除过虚拟环境py_django，则需要先创建一下
+</code></pre><p>mkvirtualenv py_django</p>
+<pre><code>安装django1.8.2的包，命令如下：
+</code></pre><p>pip install django==1.8.2</p>
+<p>安装django包</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1352,9 +1529,9 @@ for each in response.xpath(&quot;//div[@class=&apos;li_txt&apos;]&quot;):
           
             <div class="site-state-item site-state-posts">
             
-              <a href="/archives">
+              <a href="/archives/">
             
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
