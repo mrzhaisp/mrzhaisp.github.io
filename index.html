@@ -306,6 +306,150 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/20/3初始化-init-方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MR_zhai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/ha.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="翟小德的blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/20/3初始化-init-方法/" itemprop="url">3初始化_init_方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-20T21:58:14+08:00">
+                2017-09-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>init</strong>()方法的调用</p>
+<p>#定义一个汽车类<br>class Car:<br>    def <strong>init</strong>(self):</p>
+<pre><code>    #出厂设置四个轮子
+    self.wheleNum = 4
+    #出厂设置成蓝颜色
+    self.color = “蓝色”
+#定义一个跑的方法
+def move(self):
+    print(&quot;车在跑，目标夏威夷&quot;)
+</code></pre><p>#r然后创建对象<br>BMW = Car()</p>
+<p>#然后把颜色和轮子打印出来<br>print(“车的颜色是%s”%BMW.color)<br>print(“车的轮子是%d”%BMW.wheleNum)<br>然后：</p>
+<h1 id="效果如下："><a href="#效果如下：" class="headerlink" title="效果如下："></a>效果如下：</h1><p>车的颜色是蓝色</p>
+<h1 id="车的轮子是4"><a href="#车的轮子是4" class="headerlink" title="车的轮子是4"></a>车的轮子是4</h1><p>没有调用<strong>init</strong>方法的前提下，BMW就默认拥有了2个属性wheleNum和color</p>
+<h1 id="因为init方法在对象创建后，就默认被调用了"><a href="#因为init方法在对象创建后，就默认被调用了" class="headerlink" title="因为init方法在对象创建后，就默认被调用了"></a>因为<strong>init</strong>方法在对象创建后，就默认被调用了</h1><p>下面  既然<strong>init</strong>方法可以初始化，那么我们也可以像<strong>init</strong>方法传参数，修改<br>我们的默认方法<br>class Car：</p>
+<pre><code>#注意，我往init方法里面传了两个参数，
+def __init__(self,newWhellNum,newColor)
+    self.wheleNum = newWhellNum
+    self.color = newColor
+def move(self):
+    print(&quot;车在跑，目标：夏威夷&quot;)
+</code></pre><p>#创建对象,并且初始化的时候向里面传了两个参数，4和red<br>BMW = Car(6,”red”)</p>
+<p>print(‘车的颜色为:%s’%BMW.color)<br>print(‘车轮子数量为:%d’%BMW.wheelNum)</p>
+<p>车的颜色为red<br>车轮子数量为6</p>
+<p>总结：<br><strong>init</strong>方法 在创建一个对象时默认被调用，不需要手动调用<br><strong>init</strong>（self）中，默认1个参数叫self，创建对象时传入两个实参，那么<br><strong>init</strong>(self)中self作为第一个形参，还需要2个形参，例如<strong>init</strong>(self,x,y)</p>
+<p><strong>init</strong>(self)中的self参数，不需要开发者传递，python解释器会自动把当前的对象引用传递进去</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/20/2对象运行的过程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1760,128 +1904,13 @@ for each in response.xpath(&quot;//div[@class=&apos;li_txt&apos;]&quot;):
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/09/spider/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MR_zhai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/ha.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="翟小德的blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/08/09/spider/" itemprop="url">spider</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-09T08:57:08+08:00">
-                2016-08-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">timmer</span><span class="params">(func)</span>:</span></div><div class="line">	<span class="function"><span class="keyword">def</span> <span class="title">innner</span><span class="params">(**args)</span>:</span></div><div class="line">		func</div><div class="line">	<span class="keyword">return</span> innner</div><div class="line"></div><div class="line"><span class="meta">@timmer</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">test1</span><span class="params">()</span>:</span></div><div class="line">	<span class="keyword">print</span> (<span class="string">u"hello"</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">@timmer</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">test2</span><span class="params">()</span>:</span></div><div class="line">	<span class="keyword">print</span> (<span class="string">u"hello2"</span>)</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1928,7 +1957,7 @@ for each in response.xpath(&quot;//div[@class=&apos;li_txt&apos;]&quot;):
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
