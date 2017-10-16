@@ -113,17 +113,17 @@
 
 
 
-<meta name="description" content="Life is short,You Need Python">
+<meta name="description" content="str方法 #定义一个汽车类class Car:    def init(self):     #出厂设置四个轮子     self.wheleNum = 4     #出厂设置成蓝颜色     self.color = “蓝色” #定义一个跑的方法 def move(self):     print(&amp;quot;车在跑，目标夏威夷&amp;quot;) #r然后创建对象BMW = Car() 如果直接打">
 <meta property="og:type" content="article">
 <meta property="og:title" content="__str__魔法方法">
 <meta property="og:url" content="http://yoursite.com/2017/09/20/str-魔法方法/index.html">
 <meta property="og:site_name" content="翟小德的blog">
-<meta property="og:description" content="Life is short,You Need Python">
+<meta property="og:description" content="str方法 #定义一个汽车类class Car:    def init(self):     #出厂设置四个轮子     self.wheleNum = 4     #出厂设置成蓝颜色     self.color = “蓝色” #定义一个跑的方法 def move(self):     print(&amp;quot;车在跑，目标夏威夷&amp;quot;) #r然后创建对象BMW = Car() 如果直接打">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-20T14:34:13.719Z">
+<meta property="og:updated_time" content="2017-10-16T13:17:11.144Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="__str__魔法方法">
-<meta name="twitter:description" content="Life is short,You Need Python">
+<meta name="twitter:description" content="str方法 #定义一个汽车类class Car:    def init(self):     #出厂设置四个轮子     self.wheleNum = 4     #出厂设置成蓝颜色     self.color = “蓝色” #定义一个跑的方法 def move(self):     print(&amp;quot;车在跑，目标夏威夷&amp;quot;) #r然后创建对象BMW = Car() 如果直接打">
 
 
 
@@ -373,7 +373,31 @@
       
 
       
-        
+        <p><strong>str</strong>方法</p>
+<p>#定义一个汽车类<br>class Car:<br>    def <strong>init</strong>(self):</p>
+<pre><code>    #出厂设置四个轮子
+    self.wheleNum = 4
+    #出厂设置成蓝颜色
+    self.color = “蓝色”
+#定义一个跑的方法
+def move(self):
+    print(&quot;车在跑，目标夏威夷&quot;)
+</code></pre><p>#r然后创建对象<br>BMW = Car()</p>
+<p>如果直接打印print(BMW)</p>
+<p>则结果为</p>
+<p><__main__.car object="" at="" 0x7ff4da79a790=""><br>既看到的是BMW对象在内存中的地址</__main__.car></p>
+<p>下面我们定义一个<strong>str</strong>()方法</p>
+<p>class Car:<br>    def <strong>init</strong>(self, newWheelNum, newColor):<br>        self.wheelNum = newWheelNum<br>        self.color = newColor</p>
+<pre><code>def __str__(self):
+    msg = &quot;我的颜色是&quot; + self.color +&quot;我有&quot; + int(self.wheleNum) +&quot;个轮胎&quot;
+    return msg
+
+def move(self):
+    print(&apos;车在跑，目标:夏威夷&apos;)
+</code></pre><h2 id="BMW-Car-4-”白色”"><a href="#BMW-Car-4-”白色”" class="headerlink" title="BMW = Car(4,”白色”)"></a>BMW = Car(4,”白色”)</h2><p>print(BMW)</p>
+<h2 id="我的颜色是白色，我有四个轮胎"><a href="#我的颜色是白色，我有四个轮胎" class="headerlink" title="我的颜色是白色，我有四个轮胎"></a>我的颜色是白色，我有四个轮胎</h2><pre><code>在python中方法名如果是__xxxx__()的，那么就有特殊的功能，因此叫做“魔法”方法
+当使用print输出对象的时候，只要自己定义了__str__(self)方法，那么就会打印从在这个方法中return的数据
+</code></pre>
       
     </div>
     
@@ -481,8 +505,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -551,6 +584,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BMW-Car-4-”白色”"><span class="nav-number">1.</span> <span class="nav-text">BMW = Car(4,”白色”)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我的颜色是白色，我有四个轮胎"><span class="nav-number">2.</span> <span class="nav-text">我的颜色是白色，我有四个轮胎</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
