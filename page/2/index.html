@@ -306,6 +306,409 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/20/Nginx初学/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MR_zhai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/ha.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="翟小德的blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/20/Nginx初学/" itemprop="url">Nginx初学</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-20T01:30:33+08:00">
+                2017-08-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Nginx</p>
+<p>使用nginx的作用主要包括负载均衡、反向代理<br>点击查看官方网站<br>下载nginx后放到桌面上，解压缩<br>tar zxvf nginx-1.6.3.tar.gz<br>进入nginx-1.6.3目录，依次执行以下命令进行安装<br>./configure<br>make<br>sudo make install<br>默认安装到/usr/local/nginx/目录，进入此目录<br>cd /usr/local/nginx/<br>启动<br>sudo sbin/nginx<br>查看进程<br>ps ajx|grep nginx<br>nginx</p>
+<p>停止<br>sudo sbin/nginx -s stop<br>打开浏览器，输入如下网址<br><a href="http://127.0.0.1/" target="_blank" rel="external">http://127.0.0.1/</a><br>浏览效果如下图<br>nginx</p>
+<p>指向uwsgi项目</p>
+<p>打开conf/nginx.conf文件<br>sudo gedit conf/nginx.conf<br>在server节点下添加新的location项，指向uwsgi的ip与端口<br>        location / {</p>
+<pre><code>    #将所有的参数转到uwsgi下
+    include uwsgi_params;
+    #uwsgi的ip与端口
+    uwsgi_pass 127.0.0.1:8080;
+}
+</code></pre><p>代码效果如下图<br>nginx</p>
+<p>关闭nginx后再开启<br>打开浏览器，刷新后如下图<br>nginx</p>
+<p>静态文件</p>
+<p>所有的静态文件都会由nginx处理，不会将请求转到uwsgi<br>打开conf/nginx.conf文件<br>sudo gedit conf/nginx.conf<br>在server节点下添加新的location项，用于处理静态文件<br>    location /static {<br>        alias /var/www/test6/static/;<br>    }<br>在服务器上创建如下目录<br>sudo mkdir -vp /var/www/test6/static/<br>修改目录权限<br>sudo chmod 777 /var/www/test6/static/<br>最终目录结构如下图：<br>nginx</p>
+<p>修改test6/settings.py文件<br>STATIC_ROOT=’/var/www/test6/static/‘<br>STATIC_URL=’/static/‘<br>收集所有静态文件到static_root指定目录<br>python manage.py collectstatic<br>按提示输入yes，收集文件<br>nginx</p>
+<p>停止后再启动nginx服务<br>在浏览器中刷新，浏览效果如下图<br>nginx</p>
+<p>布署完成</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/16/Scrapy初学/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MR_zhai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/ha.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="翟小德的blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/02/16/Scrapy初学/" itemprop="url">Scrapy初学</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-16T01:40:13+08:00">
+                2017-02-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Scrapy的安装介绍</p>
+<p>Scrapy框架官方网址：<a href="http://doc.scrapy.org/en/latest" target="_blank" rel="external">http://doc.scrapy.org/en/latest</a></p>
+<p>Scrapy中文维护站点：<a href="http://scrapy-chs.readthedocs.io/zh_CN/latest/index.html" target="_blank" rel="external">http://scrapy-chs.readthedocs.io/zh_CN/latest/index.html</a><br>Windows 安装方式</p>
+<pre><code>Python 2 / 3
+升级pip版本：pip install --upgrade pip
+通过pip 安装 Scrapy 框架pip install Scrapy
+</code></pre><p>Ubuntu 需要9.10或以上版本安装方式</p>
+<pre><code>Python 2 / 3
+安装非Python的依赖 sudo apt-get install python-dev python-pip libxml2-dev libxslt1-dev zlib1g-dev libffi-dev libssl-dev
+通过pip 安装 Scrapy 框架 sudo pip install scrapy
+</code></pre><p>安装后，只要在命令终端输入 scrapy，提示类似以下结果，代表已经安装成功</p>
+<hr>
+<p>学习目标</p>
+<pre><code>创建一个Scrapy项目
+定义提取的结构化数据(Item)
+编写爬取网站的 Spider 并提取出结构化数据(Item)
+编写 Item Pipelines 来存储提取到的Item(即结构化数据)
+</code></pre><p>一. 新建项目(scrapy startproject)</p>
+<pre><code>在开始爬取之前，必须创建一个新的Scrapy项目。进入自定义的项目目录中，运行下列命令：
+</code></pre><p>scrapy startproject mySpider</p>
+<p>下面来简单介绍一下各个主要文件的作用：</p>
+<pre><code>scrapy.cfg ：项目的配置文件
+
+mySpider/ ：项目的Python模块，将会从这里引用代码
+
+mySpider/items.py ：项目的目标文件
+
+mySpider/pipelines.py ：项目的管道文件
+
+mySpider/settings.py ：项目的设置文件
+
+mySpider/spiders/ ：存储爬虫代码目录
+</code></pre><p>二、明确目标(mySpider/items.py)</p>
+<p>我们打算抓取：<a href="http://www.itcast.cn/channel/teacher.shtml" target="_blank" rel="external">http://www.itcast.cn/channel/teacher.shtml</a> 网站里的所有讲师的姓名、职称和个人信息。</p>
+<pre><code>打开mySpider目录下的items.py
+
+Item 定义结构化数据字段，用来保存爬取到的数据，有点像Python中的dict，但是提供了一些额外的保护减少错误。
+
+可以通过创建一个 scrapy.Item 类， 并且定义类型为 scrapy.Field的类属性来定义一个Item（可以理解成类似于ORM的映射关系）。
+
+接下来，创建一个ItcastItem 类，和构建item模型（model）。
+</code></pre><p>import scrapy</p>
+<p>class ItcastItem(scrapy.Item):<br>    name = scrapy.Field()<br>    level = scrapy.Field()<br>    info = scrapy.Field()</p>
+<p>三、制作爬虫 （spiders/itcastSpider.py）</p>
+<p>爬虫功能要分两步：</p>
+<ol>
+<li><p>爬数据</p>
+<p> 在当前目录下输入命令，将在mySpider/spider目录下创建一个名为itcast的爬虫，并指定爬取域的范围：</p>
+</li>
+</ol>
+<p>scrapy genspider itcast “itcast.cn”</p>
+<pre><code>打开 mySpider/spider目录里的 itcast.py，默认增加了下列代码:
+</code></pre><p>import scrapy</p>
+<p>class ItcastSpider(scrapy.Spider):<br>    name = “itcast”<br>    allowed_domains = [“itcast.cn”]<br>    start_urls = (<br>        ‘<a href="http://www.itcast.cn/" target="_blank" rel="external">http://www.itcast.cn/</a>‘,<br>    )</p>
+<pre><code>def parse(self, response):
+    pass
+</code></pre><p>其实也可以由我们自行创建itcast.py并编写上面的代码，只不过使用命令可以免去编写固定代码的麻烦</p>
+<p>要建立一个Spider， 你必须用scrapy.Spider类创建一个子类，并确定了三个强制的属性 和 一个方法。</p>
+<pre><code>name = &quot;&quot; ：这个爬虫的识别名称，必须是唯一的，在不同的爬虫必须定义不同的名字。
+
+allow_domains = [] 是搜索的域名范围，也就是爬虫的约束区域，规定爬虫只爬取这个域名下的网页，不存在的URL会被忽略。
+
+start_urls = () ：爬取的URL元祖/列表。爬虫从这里开始抓取数据，所以，第一次下载的数据将会从这些urls开始。其他子URL将会从这些起始URL中继承性生成。
+
+parse(self, response) ：解析的方法，每个初始URL完成下载后将被调用，调用的时候传入从每一个URL传回的Response对象来作为唯一参数，主要作用如下：
+    负责解析返回的网页数据(response.body)，提取结构化数据(生成item)
+    生成需要下一页的URL请求。
+</code></pre><p>将start_urls的值修改为需要爬取的第一个url</p>
+<p>start_urls = (“<a href="http://www.itcast.cn/channel/teacher.shtml" target="_blank" rel="external">http://www.itcast.cn/channel/teacher.shtml</a>“,)</p>
+<p>修改parse()方法</p>
+<p>def parse(self, response):<br>    with open(“teacher.html”, “w”) as f:<br>        f.write(response.text)</p>
+<p>然后运行一下看看，在mySpider目录下执行：</p>
+<p>scrapy crawl itcast</p>
+<p>是的，就是 itcast，看上面代码，它是 ItcastSpider 类的 name 属性，也就是使用 scrapy genspider命令的爬虫名。</p>
+<p>一个Scrapy爬虫项目里，可以存在多个爬虫。各个爬虫在执行时，就是按照 name 属性来区分。</p>
+<p>运行之后，如果打印的日志出现 [scrapy] INFO: Spider closed (finished)，代表执行完成。 之后当前文件夹中就出现了一个 teacher.html 文件，里面就是我们刚刚要爬取的网页的全部源代码信息。</p>
+<h1 id="注意，Python2-x默认编码环境是ASCII，当和取回的数据编码格式不一致时，可能会造成乱码；"><a href="#注意，Python2-x默认编码环境是ASCII，当和取回的数据编码格式不一致时，可能会造成乱码；" class="headerlink" title="注意，Python2.x默认编码环境是ASCII，当和取回的数据编码格式不一致时，可能会造成乱码；"></a>注意，Python2.x默认编码环境是ASCII，当和取回的数据编码格式不一致时，可能会造成乱码；</h1><h1 id="我们可以指定保存内容的编码格式，一般情况下，我们可以在代码最上方添加："><a href="#我们可以指定保存内容的编码格式，一般情况下，我们可以在代码最上方添加：" class="headerlink" title="我们可以指定保存内容的编码格式，一般情况下，我们可以在代码最上方添加："></a>我们可以指定保存内容的编码格式，一般情况下，我们可以在代码最上方添加：</h1><pre><code>import sys
+reload(sys)
+sys.setdefaultencoding(&quot;utf-8&quot;)
+</code></pre><h1 id="这三行代码是Python2-x里解决中文编码的万能钥匙，经过这么多年的吐槽后Python3学乖了，默认编码是Unicode了"><a href="#这三行代码是Python2-x里解决中文编码的万能钥匙，经过这么多年的吐槽后Python3学乖了，默认编码是Unicode了" class="headerlink" title="这三行代码是Python2.x里解决中文编码的万能钥匙，经过这么多年的吐槽后Python3学乖了，默认编码是Unicode了.."></a>这三行代码是Python2.x里解决中文编码的万能钥匙，经过这么多年的吐槽后Python3学乖了，默认编码是Unicode了..</h1><ol>
+<li><p>取数据</p>
+<p> 爬取整个网页完毕，接下来的就是的取过程了，首先观察页面源码：</p>
+</li>
+</ol>
+<p><div class="li_txt"><br>    <h3>  xxx  </h3><br>    <h4> xxxxx </h4><br>    <p> xxxxxxxx </p></div></p>
+<p>是不是一目了然？直接上XPath开始提取数据吧。</p>
+<pre><code>我们之前在mySpider/items.py 里定义了一个ItcastItem类。 这里引入进来
+</code></pre><p>  from mySpider.items import ItcastItem</p>
+<pre><code>然后将我们得到的数据封装到一个 ItcastItem 对象中，可以保存每个老师的属性：
+</code></pre><p>from mySpider.items import ItcastItem</p>
+<p>def parse(self, response):</p>
+<pre><code>#open(&quot;teacher.html&quot;,&quot;wb&quot;).write(response.body).close()
+
+# 存放老师信息的集合
+items = []
+
+for each in response.xpath(&quot;//div[@class=&apos;li_txt&apos;]&quot;):
+    # 将我们得到的数据封装到一个 `ItcastItem` 对象
+    item = ItcastItem()
+    #extract()方法返回的都是unicode字符串
+    name = each.xpath(&quot;h3/text()&quot;).extract()
+    title = each.xpath(&quot;h4/text()&quot;).extract()
+    info = each.xpath(&quot;p/text()&quot;).extract()
+
+    #xpath返回的是包含一个元素的列表
+    item[&apos;name&apos;] = name[0]
+    item[&apos;title&apos;] = title[0]
+    item[&apos;info&apos;] = info[0]
+
+    items.append(item)
+
+# 直接返回最后数据
+return items
+
+我们暂时先不处理管道，后面会详细介绍。
+</code></pre><p>保存数据<br>scrapy保存信息的最简单的方法主要有四种，-o 输出指定格式的文件，，命令如下：</p>
+<h1 id="json格式，默认为Unicode编码"><a href="#json格式，默认为Unicode编码" class="headerlink" title="json格式，默认为Unicode编码"></a>json格式，默认为Unicode编码</h1><p>scrapy crawl itcast -o teachers.json</p>
+<h1 id="json-lines格式，默认为Unicode编码"><a href="#json-lines格式，默认为Unicode编码" class="headerlink" title="json lines格式，默认为Unicode编码"></a>json lines格式，默认为Unicode编码</h1><p>scrapy crawl itcast -o teachers.jsonl</p>
+<h1 id="csv-逗号表达式，可用Excel打开"><a href="#csv-逗号表达式，可用Excel打开" class="headerlink" title="csv 逗号表达式，可用Excel打开"></a>csv 逗号表达式，可用Excel打开</h1><p>scrapy crawl itcast -o teachers.csv</p>
+<h1 id="xml格式"><a href="#xml格式" class="headerlink" title="xml格式"></a>xml格式</h1><p>scrapy crawl itcast -o teachers.xml</p>
+<p>思考<br>如果将代码改成下面形式，结果完全一样。<br>请思考 yield 在这里的作用：</p>
+<p>from mySpider.items import ItcastItem</p>
+<p>def parse(self, response):</p>
+<pre><code>#open(&quot;teacher.html&quot;,&quot;wb&quot;).write(response.body).close()
+
+# 存放老师信息的集合
+#items = []
+
+for each in response.xpath(&quot;//div[@class=&apos;li_txt&apos;]&quot;):
+    # 将我们得到的数据封装到一个 `ItcastItem` 对象
+    item = ItcastItem()
+    #extract()方法返回的都是unicode字符串
+    name = each.xpath(&quot;h3/text()&quot;).extract()
+    title = each.xpath(&quot;h4/text()&quot;).extract()
+    info = each.xpath(&quot;p/text()&quot;).extract()
+
+    #xpath返回的是包含一个元素的列表
+    item[&apos;name&apos;] = name[0]
+    item[&apos;title&apos;] = title[0]
+    item[&apos;info&apos;] = info[0]
+
+    #items.append(item)
+
+    #将获取的数据交给pipelines
+    yield item
+
+# 返回数据，不经过pipeline
+#return items
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/09/D-jango的初学/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -588,7 +991,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
